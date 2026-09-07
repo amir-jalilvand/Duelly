@@ -1,0 +1,267 @@
+@import 'tailwindcss';
+@import '@fontsource/fredoka/400.css';
+@import '@fontsource/fredoka/500.css';
+@import '@fontsource/fredoka/600.css';
+@import '@fontsource/fredoka/700.css';
+@import '@fontsource-variable/nunito';
+@import '../assets/fonts/pofak/pofak.css';
+
+@theme {
+  --color-blue: #407bff;
+  --color-pink: #ea526f;
+  --color-ink: #eff1ed;
+  --color-cream: #121826;
+  --color-card: #171e2e;
+  --color-muted: #9aa3b5;
+  --color-line: #2a3348;
+  --color-void: #080b14;
+  --font-display: 'Fredoka', system-ui, sans-serif;
+  --font-sans: 'Nunito Variable', 'Nunito', system-ui, sans-serif;
+  --shadow-clay: 0 10px 28px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.04);
+  --shadow-clay-sm: 0 8px 20px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.04);
+  --shadow-press: inset 0 2px 10px rgba(0, 0, 0, 0.45);
+  --shadow-neon-blue: 0 0 18px rgba(64, 123, 255, 0.45);
+  --shadow-neon-pink: 0 0 18px rgba(234, 82, 111, 0.45);
+  --radius-clay: 22px;
+  --press-scale: 0.96;
+  --bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+html[lang='fa'] {
+  --font-display: 'Pofak', system-ui, sans-serif;
+  --font-sans: 'Pofak', system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background: var(--color-void);
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+input,
+textarea {
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+button:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--color-blue) 70%, white);
+  outline-offset: 3px;
+}
+
+img {
+  display: block;
+}
+
+.app-shell {
+  min-height: 100dvh;
+  display: flex;
+  justify-content: center;
+  background:
+    radial-gradient(ellipse at 15% 10%, rgba(64, 123, 255, 0.28), transparent 42%),
+    radial-gradient(ellipse at 85% 90%, rgba(234, 82, 111, 0.24), transparent 40%),
+    #05070d;
+}
+
+.app-frame {
+  width: min(100vw, 430px);
+  height: 100dvh;
+  min-height: 100dvh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: var(--color-ink);
+  background:
+    radial-gradient(circle at 18% 0%, rgba(64, 123, 255, 0.22), transparent 36%),
+    radial-gradient(circle at 88% 12%, rgba(234, 82, 111, 0.18), transparent 32%),
+    radial-gradient(circle at 50% 100%, rgba(64, 123, 255, 0.08), transparent 40%),
+    linear-gradient(180deg, #101729 0%, #0a0e18 48%, #080b14 100%);
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.65);
+}
+
+.app-frame::before {
+  content: '';
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  opacity: 0.07;
+  background:
+    radial-gradient(circle at 20% 70%, transparent 38%, rgba(64, 123, 255, 0.5) 39%, transparent 40%),
+    radial-gradient(circle at 78% 72%, transparent 36%, rgba(234, 82, 111, 0.45) 37%, transparent 38%);
+  z-index: 0;
+}
+
+.app-main {
+  position: relative;
+  z-index: 1;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.chat-dock {
+  position: relative;
+  z-index: 2;
+  flex: 0 0 auto;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.clay-card {
+  background: linear-gradient(180deg, rgba(28, 36, 56, 0.95) 0%, rgba(18, 24, 40, 0.98) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-clay);
+  box-shadow: var(--shadow-clay-sm);
+}
+
+.clay-press {
+  transition:
+    transform 180ms var(--bounce),
+    box-shadow 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease,
+    filter 180ms ease;
+}
+
+.clay-press:active {
+  transform: scale(var(--press-scale)) translateY(2px);
+  box-shadow: var(--shadow-press);
+}
+
+.icon-on-dark {
+  filter: invert(1) brightness(1.15);
+}
+
+.neon-blue {
+  box-shadow: var(--shadow-neon-blue);
+}
+
+.neon-pink {
+  box-shadow: var(--shadow-neon-pink);
+}
+
+.result-art {
+  animation: result-pop 520ms var(--bounce) both;
+}
+
+.result-art--win {
+  animation:
+    result-pop 520ms var(--bounce) both,
+    result-glow-blue 2.4s ease-in-out infinite;
+}
+
+.result-art--lose {
+  animation:
+    result-pop 520ms var(--bounce) both,
+    result-glow-pink 2.4s ease-in-out infinite;
+}
+
+.result-art--draw {
+  animation:
+    result-pop 520ms var(--bounce) both,
+    result-glow-mix 2.8s ease-in-out infinite;
+}
+
+@keyframes result-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.72) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes result-glow-blue {
+  0%,
+  100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.12);
+  }
+}
+
+@keyframes result-glow-pink {
+  0%,
+  100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.1);
+  }
+}
+
+@keyframes result-glow-mix {
+  0%,
+  100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.08);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .clay-press,
+  .clay-press:active {
+    transition: none;
+    transform: none;
+  }
+
+  .result-art,
+  .result-art--win,
+  .result-art--lose,
+  .result-art--draw {
+    animation: none;
+  }
+}
+
+.page-enter {
+  animation: rise-in 420ms var(--bounce) both;
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-enter {
+    animation: none;
+  }
+}
