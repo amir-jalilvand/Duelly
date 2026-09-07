@@ -89,20 +89,20 @@ export function HomePage() {
             <button
               type="button"
               onClick={() => startFriend(selectedGame)}
-              className="clay-press clay-card flex w-full flex-col items-center justify-center gap-1.5 px-3 py-3"
+              className="clay-press clay-card flex min-h-[172px] w-full flex-col items-center justify-center gap-2.5 px-3 py-5"
             >
-              <img src={friendIcon} alt="" className="h-[88px] w-[104px] object-contain" />
-              <span className="font-display text-base font-semibold leading-tight text-ink">
+              <img src={friendIcon} alt="" className="h-[92px] w-[110px] shrink-0 object-contain" />
+              <span className="font-display px-1 text-center text-base font-semibold leading-tight text-ink">
                 {t.playWithFriend}
               </span>
             </button>
             <button
               type="button"
               onClick={() => startRobot(selectedGame)}
-              className="clay-press clay-card flex w-full flex-col items-center justify-center gap-1.5 border-blue px-3 py-3 shadow-[0_0_22px_rgba(64,123,255,0.25)]"
+              className="clay-press clay-card flex min-h-[172px] w-full flex-col items-center justify-center gap-2.5 border-blue px-3 py-5 shadow-[0_0_22px_rgba(64,123,255,0.25)]"
             >
-              <img src={robotIcon} alt="" className="h-[88px] w-[104px] object-contain" />
-              <span className="font-display text-base font-semibold leading-tight text-ink">
+              <img src={robotIcon} alt="" className="h-[92px] w-[110px] shrink-0 object-contain" />
+              <span className="font-display px-1 text-center text-base font-semibold leading-tight text-ink">
                 {t.playWithRobot}
               </span>
             </button>
