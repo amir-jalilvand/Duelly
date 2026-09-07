@@ -11,7 +11,7 @@ export function DifficultyButton({ label, selected, onClick, dir }: DifficultyBu
       type="button"
       onClick={onClick}
       dir={dir}
-      className="clay-press font-display flex min-h-[76px] w-full items-center justify-center rounded-[22px] px-4 text-center text-[17px] font-semibold leading-snug"
+      className="clay-press font-display flex min-h-[64px] w-full items-center justify-center rounded-[22px] px-4 text-center text-[17px] font-semibold leading-snug"
       style={
         selected
           ? {

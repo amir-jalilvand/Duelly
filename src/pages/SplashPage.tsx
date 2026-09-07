@@ -18,8 +18,8 @@ export function SplashPage() {
   }, [hasLocale, navigate])
 
   return (
-    <PageShell title={t.appName} showClose>
-      <div className="flex flex-1 flex-col items-center justify-center px-6 pb-20">
+    <PageShell title={t.appName}>
+      <div className="flex min-h-0 flex-1 flex-col items-center justify-center overflow-hidden px-6 pb-10">
         <div className="clay-card flex items-center gap-3 px-5 py-4">
           <img src={logo} alt="" width={72} height={72} className="size-[72px]" />
           <img src={logotype} alt="DUELLY" width={168} height={72} className="h-[72px] w-[168px]" />

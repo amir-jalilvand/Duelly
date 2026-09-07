@@ -15,7 +15,7 @@ function Mark({ value }: { value: Cell }) {
         viewBox="0 0 54 54"
         fill="none"
         aria-hidden
-        className="size-[54px] drop-shadow-[0_0_10px_rgba(64,123,255,0.65)]"
+        className="size-[46px] drop-shadow-[0_0_10px_rgba(64,123,255,0.65)]"
       >
         <path d="M13 13L41 41M41 13L13 41" stroke="#407BFF" strokeWidth="10" strokeLinecap="round" />
       </svg>
@@ -29,7 +29,7 @@ function Mark({ value }: { value: Cell }) {
         viewBox="0 0 54 54"
         fill="none"
         aria-hidden
-        className="size-[54px] drop-shadow-[0_0_10px_rgba(234,82,111,0.65)]"
+        className="size-[46px] drop-shadow-[0_0_10px_rgba(234,82,111,0.65)]"
       >
         <circle cx="27" cy="27" r="16" stroke="#EA526F" strokeWidth="10" />
       </svg>
@@ -40,7 +40,7 @@ function Mark({ value }: { value: Cell }) {
 
 export function XoBoard({ board, disabled, onCellClick }: XoBoardProps) {
   return (
-    <div className="mx-auto grid w-[min(340px,calc(100%-28px))] grid-cols-3 gap-3">
+    <div className="mx-auto grid w-[min(300px,calc(100%-24px))] grid-cols-3 gap-2">
       {board.map((cell, index) => (
         <button
           key={index}

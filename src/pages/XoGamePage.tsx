@@ -161,7 +161,7 @@ function XoGameSession() {
 
   return (
     <PageShell title="XO" onBack={() => navigate(backTo)}>
-      <div className="relative flex flex-1 flex-col items-center gap-5 px-4 pb-8 pt-4">
+      <div className="relative flex min-h-0 flex-1 flex-col items-center gap-3 overflow-hidden px-4 pb-3 pt-3">
         <div className="relative z-10 w-full">
           <MatchTable
             you={score.you}
@@ -186,13 +186,15 @@ function XoGameSession() {
           />
         ) : null}
 
-        <div className="relative z-10 w-full">
-          <XoBoard
-            board={board}
-            disabled={Boolean(result) || (!vsFriend && !xIsNext)}
-            onCellClick={onCellClick}
-          />
-        </div>
+        {!resultKind ? (
+          <div className="relative z-10 w-full">
+            <XoBoard
+              board={board}
+              disabled={Boolean(result) || (!vsFriend && !xIsNext)}
+              onCellClick={onCellClick}
+            />
+          </div>
+        ) : null}
 
         {!result ? (
           <TurnTimer

@@ -27,16 +27,16 @@ export function XoChallengePage() {
 
   return (
     <PageShell title="XO" onBack={() => navigate('/home')}>
-      <div className="flex flex-1 flex-col items-center px-6 pt-4 pb-8">
-        <div className="clay-card flex size-[148px] items-center justify-center rounded-[28px] p-2">
-          <img src={robotIcon} alt="" className="h-[128px] w-[128px] object-contain" />
+      <div className="flex min-h-0 flex-1 flex-col items-center overflow-hidden px-6 pt-3 pb-3">
+        <div className="clay-card flex size-[120px] items-center justify-center rounded-[28px] p-2">
+          <img src={robotIcon} alt="" className="h-[100px] w-[100px] object-contain" />
         </div>
         <h2 className="font-display mt-3 text-center text-xl font-semibold text-ink">
           {t.chooseDifficulty}
         </h2>
         <p className="mt-2 text-center text-[15px] font-medium text-muted">{t.howChallenging}</p>
 
-        <div className="mt-8 flex w-full max-w-[340px] flex-col gap-4">
+        <div className="mt-4 flex w-full max-w-[340px] flex-col gap-3">
           <DifficultyButton
             label={t.easy}
             selected={pendingDifficulty === 'easy'}

@@ -48,11 +48,3 @@ export function useTelegram() {
     }
   }, [location.pathname, navigate])
 }
-
-export function closeMiniApp() {
-  try {
-    WebApp.close()
-  } catch {
-    // ignore
-  }
-}

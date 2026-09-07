@@ -43,12 +43,12 @@ export function HomePage() {
   }
 
   return (
-    <PageShell title={t.appName} showClose>
-      <div className="flex flex-1 flex-col px-6 pt-6 pb-4">
+    <PageShell title={t.appName}>
+      <div className="flex min-h-0 flex-1 flex-col px-6 pt-3 pb-3">
         <BrandTitle welcome={t.welcomeTo} />
-        <p className="font-display mt-5 text-center text-lg font-medium text-ink">{t.chooseGame}</p>
+        <p className="font-display mt-3 text-center text-lg font-medium text-ink">{t.chooseGame}</p>
 
-        <div className="mt-8 grid grid-cols-2 gap-4">
+        <div className="mt-4 grid grid-cols-2 gap-3">
           <ChoiceCard
             label={t.xo}
             icon={xoIcon}
@@ -85,24 +85,24 @@ export function HomePage() {
             setSelectedGame(null)
           }}
         >
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-3">
             <button
               type="button"
               onClick={() => startFriend(selectedGame)}
-              className="clay-press clay-card flex min-h-[156px] w-full flex-col items-center justify-center gap-2 px-4 py-3"
+              className="clay-press clay-card flex w-full flex-col items-center justify-center gap-1.5 px-3 py-3"
             >
-              <img src={friendIcon} alt="" className="h-[112px] w-[128px] object-contain" />
-              <span className="font-display text-lg font-semibold leading-tight text-ink">
+              <img src={friendIcon} alt="" className="h-[88px] w-[104px] object-contain" />
+              <span className="font-display text-base font-semibold leading-tight text-ink">
                 {t.playWithFriend}
               </span>
             </button>
             <button
               type="button"
               onClick={() => startRobot(selectedGame)}
-              className="clay-press clay-card flex min-h-[156px] w-full flex-col items-center justify-center gap-2 border-blue px-4 py-3 shadow-[0_0_22px_rgba(64,123,255,0.25)]"
+              className="clay-press clay-card flex w-full flex-col items-center justify-center gap-1.5 border-blue px-3 py-3 shadow-[0_0_22px_rgba(64,123,255,0.25)]"
             >
-              <img src={robotIcon} alt="" className="h-[112px] w-[128px] object-contain" />
-              <span className="font-display text-lg font-semibold leading-tight text-ink">
+              <img src={robotIcon} alt="" className="h-[88px] w-[104px] object-contain" />
+              <span className="font-display text-base font-semibold leading-tight text-ink">
                 {t.playWithRobot}
               </span>
             </button>

@@ -42,7 +42,7 @@ function TruthDarePlaySession() {
 
   return (
     <PageShell title={t.truthDare} onBack={() => navigate('/truth-dare')}>
-      <div className="flex flex-1 flex-col items-center px-6 pt-4 pb-4">
+      <div className="flex min-h-0 flex-1 flex-col items-center overflow-hidden px-6 pt-3 pb-3">
         <p
           className="font-display rounded-full border border-white/10 bg-cream/90 px-3 py-1 text-xs font-semibold text-muted shadow-[var(--shadow-clay-sm)]"
           dir={mode === 'adult' ? 'ltr' : undefined}
@@ -79,7 +79,7 @@ function TruthDarePlaySession() {
         ) : null}
 
         {showingPrompt ? (
-          <div className="clay-card mt-8 w-full max-w-[340px] px-5 py-6">
+          <div className="clay-card mt-4 w-full max-w-[340px] px-5 py-4">
             <p
               className="font-display text-center text-xs font-semibold uppercase tracking-wide"
               style={{ color: kind === 'truth' ? '#407BFF' : '#EA526F' }}

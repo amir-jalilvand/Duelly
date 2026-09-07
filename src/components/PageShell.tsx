@@ -4,15 +4,14 @@ import { GameHeader } from './GameHeader'
 type PageShellProps = {
   title: string
   onBack?: () => void
-  showClose?: boolean
   children: ReactNode
 }
 
-export function PageShell({ title, onBack, showClose, children }: PageShellProps) {
+export function PageShell({ title, onBack, children }: PageShellProps) {
   return (
-    <div className="relative flex min-h-full flex-col">
-      <GameHeader title={title} onBack={onBack} showClose={showClose} />
-      <div className="page-enter relative flex flex-1 flex-col">{children}</div>
+    <div className="relative flex h-full min-h-0 flex-col overflow-hidden">
+      <GameHeader title={title} onBack={onBack} />
+      <div className="page-enter relative flex min-h-0 flex-1 flex-col overflow-hidden">{children}</div>
     </div>
   )
 }

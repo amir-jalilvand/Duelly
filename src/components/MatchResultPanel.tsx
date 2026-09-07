@@ -28,7 +28,7 @@ export function MatchResultPanel({
 }: MatchResultPanelProps) {
   return (
     <div
-      className={`clay-card relative z-10 mx-auto flex w-full max-w-[340px] flex-col items-center gap-2 border px-4 py-5 ${PANEL_TONE[kind]}`}
+      className={`clay-card relative z-10 mx-auto flex w-full max-w-[340px] flex-col items-center gap-2 border px-4 py-4 ${PANEL_TONE[kind]}`}
     >
       <MatchResultArt kind={kind} />
       <p className="font-display text-center text-[22px] font-semibold text-ink">{title}</p>

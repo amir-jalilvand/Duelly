@@ -2,14 +2,42 @@ import { useEffect, useRef, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import { useAppState } from '../app/AppState'
 import { useChat } from '../app/ChatState'
+import chevronDownIcon from '../assets/icons/chevron-down.svg'
 import sendIcon from '../assets/icons/send.svg'
 import { useI18n } from '../i18n/I18nProvider'
 
 const FRIEND_GAME_PATHS = ['/xo/', '/truth-dare/', '/rps/']
 
+function ChevronButton({
+  expanded,
+  label,
+  onClick,
+}: {
+  expanded: boolean
+  label: string
+  onClick: () => void
+}) {
+  return (
+    <button
+      type="button"
+      aria-label={label}
+      onClick={onClick}
+      className="clay-press flex size-11 shrink-0 items-center justify-center rounded-2xl border border-line bg-cream"
+    >
+      <img
+        src={chevronDownIcon}
+        alt=""
+        width={22}
+        height={22}
+        className={`icon-on-dark size-[22px] ${expanded ? '' : 'rotate-180'}`}
+      />
+    </button>
+  )
+}
+
 export function ChatDock() {
   const { pathname } = useLocation()
-  const { t } = useI18n()
+  const { t, locale } = useI18n()
   const { opponent } = useAppState()
   const { messages, expanded, setExpanded, send } = useChat()
   const [draft, setDraft] = useState('')
@@ -31,19 +59,15 @@ export function ChatDock() {
     setDraft('')
   }
 
+  const toggleLabel = expanded ? t.chatMinimize : t.chat
+
   return (
     <div className="chat-dock relative z-50 shrink-0 border-t border-white/10 bg-[#101729]/95 backdrop-blur-md">
       {expanded ? (
         <div className="flex max-h-[42dvh] flex-col">
-          <div className="flex items-center justify-between px-4 py-2">
+          <div className="flex items-center justify-between px-3 py-1.5">
             <p className="font-display text-sm font-semibold text-ink">{t.chat}</p>
-            <button
-              type="button"
-              onClick={() => setExpanded(false)}
-              className="font-display text-xs font-semibold text-muted"
-            >
-              {t.chatMinimize}
-            </button>
+            <ChevronButton expanded onClick={() => setExpanded(false)} label={t.chatMinimize} />
           </div>
           <div ref={listRef} className="min-h-[120px] flex-1 space-y-2 overflow-y-auto px-3 pb-2">
             {messages.length === 0 ? (
@@ -72,50 +96,24 @@ export function ChatDock() {
       ) : null}
 
       <form
+        dir="ltr"
         className="flex items-center gap-2 px-3 py-2.5 pb-[max(0.625rem,env(safe-area-inset-bottom))]"
         onSubmit={(e) => {
           e.preventDefault()
           submit()
         }}
       >
-        <button
-          type="button"
-          aria-label={expanded ? t.chatMinimize : t.chat}
+        <ChevronButton
+          expanded={expanded}
+          label={toggleLabel}
           onClick={() => setExpanded(!expanded)}
-          className="clay-press flex size-11 shrink-0 items-center justify-center rounded-2xl border border-line bg-cream"
-        >
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden>
-            {expanded ? (
-              <path
-                d="M6 14.5 12 8.5l6 6"
-                stroke="#EFF1ED"
-                strokeWidth="2.4"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            ) : (
-              <>
-                <path
-                  d="M5 6.5h14a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H9l-4 3v-3H5a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2Z"
-                  stroke="#EFF1ED"
-                  strokeWidth="2"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M8 11h8M8 14h5"
-                  stroke="#EFF1ED"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                />
-              </>
-            )}
-          </svg>
-        </button>
+        />
         <input
           value={draft}
           onChange={(e) => setDraft(e.target.value)}
           onFocus={() => setExpanded(true)}
           placeholder={t.chatPlaceholder}
+          dir={locale === 'fa' ? 'rtl' : 'ltr'}
           className="font-sans min-h-11 flex-1 rounded-2xl border border-line bg-cream px-3 text-[15px] text-ink outline-none placeholder:text-muted focus:border-blue"
         />
         <button

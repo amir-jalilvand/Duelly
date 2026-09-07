@@ -196,7 +196,7 @@ function RpsGameSession() {
 
   return (
     <PageShell title={t.rps} onBack={() => navigate(vsFriend ? '/home' : '/rps/challenge')}>
-      <div className="relative flex flex-1 flex-col items-center gap-4 px-4 pb-4 pt-3">
+      <div className="relative flex min-h-0 flex-1 flex-col items-center gap-2.5 overflow-hidden px-4 pb-3 pt-2">
         <div className="relative z-10 w-full">
           <MatchTable
             you={score.you}
@@ -241,7 +241,7 @@ function RpsGameSession() {
               </h2>
             )}
 
-            <div className="relative z-10 flex w-full max-w-[360px] flex-wrap content-center justify-center gap-x-8 gap-y-5">
+            <div className="relative z-10 flex w-full max-w-[360px] flex-wrap content-center justify-center gap-x-4 gap-y-3">
               {RPS_CHOICES.map((choice) => {
                 const selected = you === choice
                 return (
@@ -250,7 +250,7 @@ function RpsGameSession() {
                     type="button"
                     disabled={!picking || Boolean(you)}
                     onClick={() => pick(choice)}
-                    className="clay-press clay-card flex h-[160px] w-[148px] flex-col items-center gap-2 px-2 py-3 disabled:opacity-70"
+                    className="clay-press clay-card flex h-[128px] w-[124px] flex-col items-center gap-1 px-2 py-2 disabled:opacity-70"
                     style={
                       selected
                         ? {
@@ -260,11 +260,11 @@ function RpsGameSession() {
                         : undefined
                     }
                   >
-                    <div className="flex h-[108px] w-full shrink-0 items-center justify-center">
+                    <div className="flex h-[84px] w-full shrink-0 items-center justify-center">
                       <img
                         src={MOVE_ICONS[choice]}
                         alt=""
-                        className="h-[100px] w-[112px] object-contain"
+                        className="h-[80px] w-[96px] object-contain"
                       />
                     </div>
                     <span className="font-display text-[15px] font-semibold leading-tight text-ink">
@@ -282,7 +282,7 @@ function RpsGameSession() {
             ) : null}
 
             {you && them && lastResult ? (
-              <div className="clay-card relative z-10 w-full max-w-[340px] px-4 py-4 text-center">
+              <div className="clay-card relative z-10 w-full max-w-[340px] px-4 py-3 text-center">
                 <p className="text-sm text-muted">
                   {t.youPicked}: <strong className="text-ink">{labels[you]}</strong>
                   {' · '}

@@ -45,7 +45,7 @@ export function JoinSessionPage() {
 
   return (
     <PageShell title={t.appName} onBack={() => navigate('/home')}>
-      <div className="flex flex-1 flex-col items-center justify-center gap-3 px-6 pb-8">
+      <div className="flex min-h-0 flex-1 flex-col items-center justify-center gap-3 overflow-hidden px-6 pb-6">
         <div className="clay-card flex size-[148px] items-center justify-center rounded-[28px] p-2">
           <img src={friendIcon} alt="" className="h-[128px] w-[128px] object-contain" />
         </div>

@@ -66,9 +66,9 @@ export function WaitingFriendPage() {
         navigate('/home')
       }}
     >
-      <div className="flex flex-1 flex-col items-center px-6 pt-6 pb-4">
-        <div className="clay-card flex size-[148px] items-center justify-center rounded-[28px] p-2">
-          <img src={friendIcon} alt="" className="h-[128px] w-[128px] object-contain" />
+      <div className="flex min-h-0 flex-1 flex-col items-center overflow-hidden px-6 pt-3 pb-3">
+        <div className="clay-card flex size-[120px] items-center justify-center rounded-[28px] p-2">
+          <img src={friendIcon} alt="" className="h-[100px] w-[100px] object-contain" />
         </div>
 
         <h2 className="font-display mt-3 text-center text-xl font-semibold text-ink">
@@ -78,12 +78,12 @@ export function WaitingFriendPage() {
           {t.waitingBody}
         </p>
 
-        <div className="mt-8 flex w-full max-w-[340px] flex-col items-center gap-4">
-          <div className="h-12 w-12 animate-spin rounded-full border-[4px] border-line border-t-blue" />
+        <div className="mt-4 flex w-full max-w-[340px] flex-col items-center gap-3">
+          <div className="h-10 w-10 animate-spin rounded-full border-[4px] border-line border-t-blue" />
           <p className="font-display text-sm font-semibold text-ink">{t.waitingStatus}</p>
         </div>
 
-        <div className="mt-8 flex w-full max-w-[340px] flex-col gap-3">
+        <div className="mt-4 flex w-full max-w-[340px] flex-col gap-2.5">
           <Button onClick={onShare}>{t.sendToFriend}</Button>
           <Button variant="ghost" onClick={onCopy}>
             {copied ? t.inviteCopied : t.copyInviteLink}

@@ -12,7 +12,7 @@ const GLOW: Record<MatchResultKind, string> = {
     'drop-shadow(0 0 10px rgba(64,123,255,0.45)) drop-shadow(0 0 10px rgba(234,82,111,0.45))',
 }
 
-export function MatchResultArt({ kind, className = 'h-[88px] w-[88px]' }: MatchResultArtProps) {
+export function MatchResultArt({ kind, className = 'h-[72px] w-[72px]' }: MatchResultArtProps) {
   return (
     <div
       className={`result-art result-art--${kind} relative flex shrink-0 items-center justify-center ${className}`}

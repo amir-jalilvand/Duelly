@@ -17,22 +17,22 @@ export function LanguagePage() {
   }
 
   return (
-    <PageShell title={t.appName} showClose>
-      <div className="flex flex-1 flex-col px-6 pt-6 pb-8">
+    <PageShell title={t.appName}>
+      <div className="flex min-h-0 flex-1 flex-col px-6 pt-3 pb-3">
         <BrandTitle welcome={t.welcomeTo} />
-        <p className="font-display mt-5 text-center text-lg font-medium text-ink">{t.chooseLanguage}</p>
-        <div className="mt-8 grid grid-cols-2 gap-4">
+        <p className="font-display mt-3 text-center text-lg font-medium text-ink">{t.chooseLanguage}</p>
+        <div className="mt-4 grid grid-cols-2 gap-3">
           <ChoiceCard
             label={t.english}
             icon={flagEn}
-            iconClassName="h-[96px] w-[112px] rounded-md object-cover"
+            iconClassName="h-[72px] w-[96px] rounded-md object-cover"
             selected={locale === 'en'}
             onClick={() => choose('en')}
           />
           <ChoiceCard
             label={t.persian}
             icon={flagFa}
-            iconClassName="h-[96px] w-[112px] rounded-md object-cover"
+            iconClassName="h-[72px] w-[96px] rounded-md object-cover"
             selected={locale === 'fa'}
             onClick={() => choose('fa')}
           />
